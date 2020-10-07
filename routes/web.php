@@ -16,3 +16,7 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+// $router->get('/home', function(){
+// 	return 'hello';
+// });
+$router->get('home/{name}','Home@index');
