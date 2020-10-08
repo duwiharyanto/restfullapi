@@ -19,4 +19,5 @@ $router->get('/', function () use ($router) {
 // $router->get('/home', function(){
 // 	return 'hello';
 // });
-$router->get('home/{name}','Home@index');
+$router->get('menu','Home@index');
+$router->post('menu/store','Home@store');
