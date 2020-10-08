@@ -21,3 +21,8 @@ $router->get('/', function () use ($router) {
 // });
 $router->get('menu','Home@index');
 $router->post('menu/store','Home@store');
+$router->get('pegawai','Pegawai@index');
+$router->post('pegawai/store','Pegawai@store');
+$router->post('pegawai/show[/{id}]','Pegawai@show');
+$router->put('pegawai/update/{id}','Pegawai@update');
+$router->delete('pegawai/delete/{id}','Pegawai@destroy');

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\menu AS menu;
+use App\Models\Menu AS menu;
 use Illuminate\Support\Facades\Validator;
 
 class Home extends Controller
