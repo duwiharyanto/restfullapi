@@ -21,6 +21,7 @@ $router->get('/', function () use ($router) {
 // });
 $router->post('register','AuthController@register');
 $router->post('login','AuthController@login');
+$router->get('user/{id}','UserController@show');
 $router->get('menu','Home@index');
 $router->post('menu/store','Home@store');
 $router->get('pegawai','Pegawai@index');
