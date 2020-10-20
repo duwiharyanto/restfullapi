@@ -20,7 +20,7 @@ class Pegawai extends Controller
         return response()->json([
             'status'=>true,
             'message'=>'Data all pegawai',
-            'data'=>$r_pegawai,
+            'data'=>['pegawai'=>$r_pegawai,],
         ],200);
     }
 

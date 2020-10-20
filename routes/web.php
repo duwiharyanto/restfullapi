@@ -21,11 +21,14 @@ $router->get('/', function () use ($router) {
 // });
 $router->post('register','AuthController@register');
 $router->post('login','AuthController@login');
-$router->get('user/{id}','UserController@show');
+$router->group(['middleware'=>'login','prefix'=>'admin'], function() use ($router){
+    $router->get('user/{id}','UserController@show');
+    $router->get('user','UserController@index');
+    $router->get('pegawai','Pegawai@index');
+    $router->post('pegawai/store','Pegawai@store');
+    $router->post('pegawai/show[/{id}]','Pegawai@show');
+    $router->put('pegawai/update/{id}','Pegawai@update');
+    $router->delete('pegawai/delete/{id}','Pegawai@destroy');    
+});
 $router->get('menu','Home@index');
 $router->post('menu/store','Home@store');
-$router->get('pegawai','Pegawai@index');
-$router->post('pegawai/store','Pegawai@store');
-$router->post('pegawai/show[/{id}]','Pegawai@show');
-$router->put('pegawai/update/{id}','Pegawai@update');
-$router->delete('pegawai/delete/{id}','Pegawai@destroy');

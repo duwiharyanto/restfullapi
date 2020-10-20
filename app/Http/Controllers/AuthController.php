@@ -37,10 +37,9 @@ class AuthController extends Controller
     	$email=$request->input('email');
     	$password=$request->input('password');
 
-    	$user = User::where('email',$email)->first();
+		$user = User::where('email',$email)->first();
     	if(Hash::check($password,$user->password)){
     		$apiToken=base64_encode(str_random(40));
-
             $user->update([
                 'api_token'=>$apiToken,
             ]);

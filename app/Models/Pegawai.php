@@ -8,5 +8,7 @@ class Pegawai extends Model
 {
     protected $table='pegawai';
     protected $guarded=['id'];
-    
+    public function departmen(){
+        return $this->belongsTo('App\Models\ModelDepartmen');
+    }
 }
