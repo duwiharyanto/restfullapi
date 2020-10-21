@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ModelDepartmen extends Model
 {
-    private $table='departmen';
-    private $guarded=['id'];
-    public function pegawai(){
-        return $this->hasOne('App\Models\Pegawai','departemen_id');
+    protected $table='departmen';
+    protected $guarded=['id'];
+    
+    public function getpegawai(){
+        //return $this->hasMany('App\Models\Pegawai','departmen_id');
+        return $this->belongsTo('App\Models\Pegawai');
     }
 }

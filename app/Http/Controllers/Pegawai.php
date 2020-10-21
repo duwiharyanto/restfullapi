@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 
 // MODEL
 use App\Models\Pegawai AS Mpegawai;
+use App\Models\ModelDepartmen AS Mdepartmen;
 class Pegawai extends Controller
 {
     /**
@@ -17,10 +18,15 @@ class Pegawai extends Controller
     public function index()
     {
         $r_pegawai=Mpegawai::all();
+        $r_departmen=Mdepartmen::all();
+        foreach($r_pegawai AS $index => $row){
+            $pegawai[$index]=$row;
+            $pegawai[$index]->departmen=$row->getdepartmen;
+        }
         return response()->json([
             'status'=>true,
-            'message'=>'Data all pegawai',
-            'data'=>['pegawai'=>$r_pegawai,],
+            'message'=>'Tampil detail by id',
+            'data'=>$pegawai,
         ],200);
     }
 
