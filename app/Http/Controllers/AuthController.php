@@ -12,7 +12,6 @@ class AuthController extends Controller
     	$name=$request->input('name');
     	$email=$request->input('email');
     	$password=Hash::make($request->input('password'));
-
     	$register=User::create([
     		'name'=>$name,
     		'email'=>$email,
@@ -38,10 +37,28 @@ class AuthController extends Controller
     	$email=$request->input('email');
     	$password=$request->input('password');
 
-    	$user = User::where('email',$email)->first();
-    	if(Hash::check($password),$user->password){
-    		$apiToken=base64_encode(str_random())
-    	}
+		$user = User::where('email',$email)->first();
+    	if(Hash::check($password,$user->password)){
+    		$apiToken=base64_encode(str_random(40));
+            $user->update([
+                'api_token'=>$apiToken,
+            ]);
+
+            return response()->json([
+                'success'=>true,
+                'message'=>'Login berhasil',
+                'data'=>[
+                    'user'=>$user,
+                    'apitoken'=>$apiToken,
+                ]
+            ],201);
+    	}else{
+            return response()->json([
+                'success'=>false,
+                'message'=>'Login fail',
+                'data'=>''
+            ],400);
+        }
 
     }
 }
