@@ -19,14 +19,16 @@ class Pegawai extends Controller
     {
         $r_pegawai=Mpegawai::all();
         $r_departmen=Mdepartmen::all();
-        foreach($r_pegawai AS $index => $row){
-            $pegawai[$index]=$row;
-            $pegawai[$index]->departmen=$row->getdepartmen;
-        }
+        foreach($r_departmen AS $index => $departmen){
+            foreach($departmen->getpegawai AS $index2 => $pegawai) {
+                $dt[$index2]=$pegawai;
+                $dt[$index2]->departmen=$departmen->departmen;
+            }
+        }   
         return response()->json([
             'status'=>true,
             'message'=>'Tampil detail by id',
-            'data'=>$pegawai,
+            'data'=>$dt,
         ],200);
     }
 

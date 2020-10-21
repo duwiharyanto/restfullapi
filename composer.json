@@ -8,14 +8,9 @@
         "php": "^7.3",
         "doctrine/dbal": "^2.11",
         "flipbox/lumen-generator": "^8.0",
-<<<<<<< HEAD
-        "laravel/lumen-framework": "^8.0",
-        "tymon/jwt-auth": "^1.0"
-=======
         "fzaninotto/faker": "^1.9",
         "laravel/helpers": "^1.3",
         "laravel/lumen-framework": "^8.0"
->>>>>>> ced079a40374d05e3093a32dcec707898e7367db
     },
     "require-dev": {
         "mockery/mockery": "^1.3.1",

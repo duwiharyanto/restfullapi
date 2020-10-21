@@ -10,7 +10,7 @@ class Pegawai extends Model
     protected $guarded=['id'];
     
     public function getdepartmen(){
-        //return $this->belongsTo('App\Models\ModelDepartmen');
-        return $this->hasMany('App\Models\ModelDepartmen','id');
+        return $this->belongsTo('App\Models\ModelDepartmen');
+        //return $this->hasMany('App\Models\ModelDepartmen','id');
     }
 }
