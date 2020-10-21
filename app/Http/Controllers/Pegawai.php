@@ -28,7 +28,7 @@ class Pegawai extends Controller
         return response()->json([
             'status'=>true,
             'message'=>'Tampil detail by id',
-            'data'=>$dt,
+            'data'=>$r_departmen,
         ],200);
     }
 

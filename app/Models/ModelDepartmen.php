@@ -10,7 +10,7 @@ class ModelDepartmen extends Model
     protected $guarded=['id'];
     
     public function getpegawai(){
-        return $this->hasMany('App\Models\Pegawai','iddepartmen');
+        return $this->hasMany('App\Models\Pegawai','departmen_id');
         //return $this->belongsTo('App\Models\Pegawai');
     }
 }
