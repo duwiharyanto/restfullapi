@@ -11,6 +11,6 @@ class ModelDepartmen extends Model
     
     public function getpegawai(){
         return $this->hasMany('App\Models\Pegawai','departmen_id');
-        //return $this->belongsTo('App\Models\Pegawai');
+        //return $this->belongsTo('App\Models\Pegawai','departmen_id');
     }
 }
