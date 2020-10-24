@@ -28,6 +28,7 @@ class pegawai extends Seeder
             'nama' => $faker->name,
             'alamat' =>$faker->address,
             'departmen_id' => 1,
+            'bank_id'=>1,
             'no_hp' =>'bantul',
         ]);
         }

@@ -17,21 +17,15 @@ class Pegawai extends Controller
      */
     public function index()
     {
-        $r_pegawai=Mpegawai::find(2);
-        $r_departmen=Mdepartmen::all();
-        // foreach($r_departmen AS $index => $departmen){
-        //     foreach($departmen->getpegawai AS $index2 => $pegawai) {
-        //         $dt[$index2]=$pegawai;
-        //         $dt[$index2]->departmen=$departmen->departmen;
-        //     }
-        // }  
-            
-        dd($r_pegawai->getdepartmen);
-        // return response()->json([
-        //     'status'=>true,
-        //     'message'=>'Tampil detail by id',
-        //     'data'=>$r_pegawai,
-        // ],200);
+        //$r_pegawai=Mpegawai::all();
+        $r_pegawai=Mpegawai::with(['getdepartmen','getbank'])->get();
+        //$r_departmen=Mdepartmen::with('getpegawai')->get();  
+        //return $r_pegawai;
+        return response()->json([
+            'status'=>true,
+            'message'=>'Tampil detail by id',
+            'data'=>$r_pegawai,
+        ],200);
     }
 
     /**
