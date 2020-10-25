@@ -57,7 +57,7 @@ class AuthController extends Controller
                 'success'=>false,
                 'message'=>'Login fail',
                 'data'=>''
-            ],400);
+            ],200);
         }
 
     }
